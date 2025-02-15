@@ -1,21 +1,12 @@
 <script lang="ts">
-	import { Accordion, AccordionItem } from '$src/lib/components/ui/accordion';
+	import { Button } from '$components/ui/button';
 </script>
 
-<Accordion type="single">
-	<AccordionItem
-		value="item-1"
-		title="What is this?"
-		content="An accordion don't you see?"
-	/>
-	<AccordionItem
-		value="item-2"
-		title="What is this?"
-		content="An accordion don't you see?"
-	/>
-	<AccordionItem
-		value="item-3"
-		title="What is this?"
-		content="An accordion don't you see?"
-	/>
-</Accordion>
+<div class="flex min-h-screen w-full items-center justify-center gap-4">
+	<Button>This is a button</Button>
+	<Button variant="destructive">This is a button</Button>
+	<Button variant="ghost">This is a button</Button>
+	<Button variant="link">This is a button</Button>
+	<Button variant="outline">This is a button</Button>
+	<Button variant="secondary">This is a button</Button>
+</div>
