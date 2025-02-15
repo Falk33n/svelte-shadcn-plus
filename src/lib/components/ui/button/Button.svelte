@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { buttonVariants, type ButtonProps } from '$components/ui/button';
-	import { cn } from '$utils';
+	import { cn } from 'tailwind-variants';
 
 	let {
 		children,
