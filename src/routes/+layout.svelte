@@ -1,8 +1,11 @@
 <script lang="ts">
-	import '$src/app.css';
+	import '$app.css';
+	import { ModeWatcher } from '$components/ui/mode-watcher';
 	import { type LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
 </script>
+
+<ModeWatcher />
 
 {@render children()}
