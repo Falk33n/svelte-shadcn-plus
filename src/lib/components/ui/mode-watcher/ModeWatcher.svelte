@@ -14,15 +14,11 @@
 
 		if (mode.current === 'dark') {
 			document.documentElement.classList.add('dark');
-			return;
-		}
-
-		if (mode.current === 'light') {
+		} else if (mode.current === 'light') {
 			document.documentElement.classList.remove('dark');
-			return;
+		} else {
+			document.documentElement.classList.toggle('dark', mediaQuery.matches);
 		}
-
-		document.documentElement.classList.toggle('dark', mediaQuery.matches);
 	};
 
 	let hasMounted = false;
