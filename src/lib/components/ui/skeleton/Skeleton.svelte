@@ -3,9 +3,10 @@
 	import { cn } from '$utils';
 
 	let {
-		ref = $bindable(null),
-		class: className,
 		children,
+		ref = $bindable(null),
+		'class': className,
+		'aria-hidden': ariaHidden = true,
 		...restProps
 	}: SkeletonProps = $props();
 </script>
@@ -13,6 +14,7 @@
 <div
 	bind:this={ref}
 	class={cn('bg-muted animate-pulse rounded-md', className)}
+	aria-hidden={ariaHidden}
 	{...restProps}
 >
 	{@render children?.()}
