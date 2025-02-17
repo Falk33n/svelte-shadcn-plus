@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { buttonVariants, type ButtonProps } from '$components/ui/button';
+	import { type BadgeProps, badgeVariants } from '$components/ui/badge';
 	import { cn } from '$utils';
 
 	let {
@@ -11,22 +11,17 @@
 				? 'noopener noreferrer'
 				: undefined
 			: undefined,
-		type = !href ? 'button' : undefined,
-		disabled = !href ? false : undefined,
 		ref = $bindable(null),
 		variant = 'default',
-		size = 'default',
 		class: className,
 		...restProps
-	}: ButtonProps = $props();
+	}: BadgeProps = $props();
 </script>
 
 <svelte:element
-	this={href ? 'a' : 'button'}
+	this={href ? 'a' : 'span'}
 	bind:this={ref}
-	class={cn(buttonVariants({ variant, size, className }))}
-	{disabled}
-	{type}
+	class={cn(badgeVariants({ variant, className }))}
 	{href}
 	{target}
 	{rel}
