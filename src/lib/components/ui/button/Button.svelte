@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { buttonVariants, type ButtonProps } from '$components/ui/button';
-	import { cn } from 'tailwind-variants';
+	import { cn } from '$utils';
 
 	let {
 		children,
@@ -22,7 +22,7 @@
 </script>
 
 <svelte:element
-	this={!href ? 'button' : 'a'}
+	this={href ? 'a' : 'button'}
 	bind:this={ref}
 	class={cn(buttonVariants({ variant, size, className }))}
 	{disabled}
