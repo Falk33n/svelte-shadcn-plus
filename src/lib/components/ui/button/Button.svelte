@@ -11,8 +11,8 @@
 				? 'noopener noreferrer'
 				: undefined
 			: undefined,
-		type = !href ? 'button' : undefined,
-		disabled = !href ? false : undefined,
+		type = href ? undefined : 'button',
+		disabled = href ? undefined : false,
 		ref = $bindable(null),
 		variant = 'default',
 		size = 'default',
