@@ -4,9 +4,9 @@
 
 	let {
 		ref = $bindable(null),
-		variant = 'default',
 		class: className,
 		children,
+		variant,
 		href,
 		target,
 		rel,

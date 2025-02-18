@@ -14,7 +14,7 @@
 <div
 	bind:this={ref}
 	class={className ? cn(className) : undefined}
-	style={ratio
+	style={ratio !== undefined
 		? `position: relative; padding-bottom: ${100 / ratio}%;`
 		: undefined}
 	{...restProps}

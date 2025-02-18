@@ -32,3 +32,7 @@ export const createPortal = (
 		},
 	};
 };
+
+export const getUniqueId = (length: number = 5) => {
+	return crypto.randomUUID().replace(/-/g, '').substring(0, length);
+};

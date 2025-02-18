@@ -1,8 +1,8 @@
 <script lang="ts">
 	import {
-		type DropdownMenuContentProps,
+		type ContentProps,
 		type DropdownMenuContextProps,
-		getNewDropdownMenuContentPosition,
+		getNewDropdownMenuContentStyle,
 	} from '$components/ui/dropdown-menu';
 	import { cn, createPortal, getOrSetContext } from '$utils';
 
@@ -10,13 +10,13 @@
 		ref = $bindable(null),
 		class: className,
 		portalTarget,
-		side = 'bottom',
-		sideOffset = 0,
-		align = 'center',
-		preventScroll = true,
+		side,
+		sideOffset,
+		align,
+		preventScroll,
 		children,
 		...restProps
-	}: DropdownMenuContentProps = $props();
+	}: ContentProps = $props();
 
 	const { open, dir, uniqueId } =
 		getOrSetContext<DropdownMenuContextProps>('dropdown-menu');
@@ -31,12 +31,12 @@
 		if (!ref || !triggerRef) return;
 
 		const portal = createPortal(ref, portalTarget);
-		contentStyles = getNewDropdownMenuContentPosition({
+		contentStyles = getNewDropdownMenuContentStyle({
 			ref,
 			triggerRef,
-			side,
-			sideOffset,
-			align,
+			side: side || 'bottom',
+			sideOffset: sideOffset || 10,
+			align: align || 'center',
 		});
 
 		return () => portal.destroy();
