@@ -9,6 +9,7 @@ export default {
 		alias: {
 			'$app.css': './src/app.css',
 			'$utils': './src/lib/utils.ts',
+			'$types': './src/lib/types.ts',
 			'$components': './src/lib/components',
 			'$components/*': './src/lib/components/*',
 		},

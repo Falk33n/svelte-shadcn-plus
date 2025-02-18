@@ -1,7 +1,8 @@
+import type { WithElementRef } from '$types';
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type AspectRatioProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
-	ref?: HTMLDivElement | null;
-	class?: string;
+export type AspectRatioProps = WithElementRef<
+	HTMLAttributes<HTMLDivElement>
+> & {
 	ratio?: number;
 };
