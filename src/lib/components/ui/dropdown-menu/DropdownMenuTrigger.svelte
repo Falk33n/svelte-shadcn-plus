@@ -8,11 +8,14 @@
 
 	let {
 		ref = $bindable(null),
-		disabled = false,
-		variant = 'default',
-		size = 'default',
-		type = 'button',
-		class: className,
+		'class': className,
+		'aria-haspopup': ariaHasPopup,
+		'aria-expanded': ariaExpanded,
+		disabled,
+		variant,
+		size,
+		type,
+		onclick,
 		children,
 		child,
 		...restProps
@@ -21,32 +24,44 @@
 	const { open, onOpenChange, uniqueId } =
 		getOrSetContext<DropdownMenuContextProps>('dropdown-menu');
 
-	const handleOpenChange = () => {
+	type ClickEvent = MouseEvent & {
+		currentTarget: EventTarget & HTMLButtonElement;
+	};
+
+	const handleOpenChange = (event: ClickEvent) => {
 		open.value = !open.value;
 		onOpenChange?.(open.value);
+		onclick?.(event);
 	};
 </script>
 
 {#if child}
 	{@render child({
-		ref,
-		disabled,
-		'id': `dropdown-menu-trigger-${uniqueId}`,
-		'aria-expanded': open.value,
-		'onclick': handleOpenChange,
-		'aria-haspopup': 'menu',
-		'class': cn(buttonVariants({ variant, size, className })),
+		props: {
+			'disabled': disabled !== undefined ? disabled : false,
+			'id': `dropdown-menu-trigger-${uniqueId}`,
+			'aria-expanded': ariaExpanded !== undefined ? ariaExpanded : open.value,
+			'aria-haspopup': ariaHasPopup !== undefined ? ariaHasPopup : 'menu',
+			'onclick': (event) => handleOpenChange(event),
+			'class': cn(
+				buttonVariants({ variant, size, className: className as string }),
+			),
+			ref,
+			...restProps,
+		},
 	})}
 {:else}
 	<button
 		bind:this={ref}
-		class={cn(buttonVariants({ variant, size, className }))}
-		onclick={handleOpenChange}
-		aria-expanded={open.value}
-		aria-haspopup="menu"
+		class={cn(
+			buttonVariants({ variant, size, className: className as string }),
+		)}
+		onclick={(event) => handleOpenChange(event)}
+		aria-expanded={ariaExpanded !== undefined ? ariaExpanded : open.value}
+		aria-haspopup={ariaHasPopup !== undefined ? ariaHasPopup : 'menu'}
 		id={`dropdown-menu-trigger-${uniqueId}`}
-		{type}
-		{disabled}
+		type={type !== undefined ? type : 'button'}
+		disabled={disabled !== undefined ? disabled : false}
 		{...restProps}
 	>
 		{@render children?.()}

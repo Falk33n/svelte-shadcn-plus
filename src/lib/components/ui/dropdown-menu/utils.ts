@@ -1,7 +1,14 @@
-type AlignPosition = {
+import { hasContext } from 'svelte';
+
+type GetPosition = {
+	ref: HTMLElement;
+	triggerRef: HTMLElement;
 	side: 'top' | 'bottom' | 'left' | 'right';
 	sideOffset: number;
 	align: 'start' | 'end' | 'center';
+};
+
+type AlignPosition = Omit<GetPosition, 'ref' | 'triggerRef'> & {
 	top: number;
 	left: number;
 	triggerRect: DOMRect;
@@ -77,21 +84,19 @@ const preventOverflow = ({
 	return { top, left };
 };
 
-type GetPosition = {
-	ref: HTMLDivElement;
-	triggerRef: HTMLButtonElement;
-	side: 'top' | 'bottom' | 'left' | 'right';
-	sideOffset: number;
-	align: 'start' | 'end' | 'center';
-};
-
-export const getNewDropdownMenuContentPosition = ({
+export const getNewDropdownMenuContentStyle = ({
 	ref,
 	triggerRef,
 	side,
 	sideOffset,
 	align,
 }: GetPosition) => {
+	if (!hasContext('dropdown-menu')) {
+		throw new ReferenceError(
+			'getNewDropdownMenuContentStyle() was called outside of its context.',
+		);
+	}
+
 	const triggerRect = triggerRef.getBoundingClientRect();
 	const rect = ref.getBoundingClientRect();
 	const viewportWidth = window.innerWidth;

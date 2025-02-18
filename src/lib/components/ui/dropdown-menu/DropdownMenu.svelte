@@ -1,24 +1,24 @@
 <script lang="ts">
 	import type {
 		DropdownMenuContextProps,
-		DropdownMenuProps,
+		RootProps,
 	} from '$components/ui/dropdown-menu';
-	import { getOrSetContext } from '$utils';
+	import { getOrSetContext, getUniqueId } from '$utils';
 
 	let {
-		open: bindableOpen = $bindable(false),
-		dir = 'ltr',
+		open: initialOpen = $bindable(false),
+		dir,
 		children,
 		onOpenChange,
-	}: DropdownMenuProps = $props();
+	}: RootProps = $props();
 
-	let open = $state({ value: bindableOpen });
+	let open = $state({ value: initialOpen });
 
 	getOrSetContext<DropdownMenuContextProps>('dropdown-menu', {
 		open,
 		onOpenChange,
-		dir,
-		uniqueId: crypto.randomUUID(),
+		dir: dir || 'ltr',
+		uniqueId: getUniqueId(),
 	});
 </script>
 
