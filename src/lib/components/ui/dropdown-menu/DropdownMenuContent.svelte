@@ -47,7 +47,7 @@
 	<div
 		bind:this={ref}
 		class={cn(
-			'bg-popover text-popover-foreground fixed z-50 w-fit min-w-[8rem] rounded-md border p-1 shadow-md focus:outline-none',
+			'bg-secondary text-secondary-foreground fixed z-50 w-fit min-w-[8rem] rounded-md border p-1 shadow-md focus:outline-none',
 			className,
 		)}
 		style={contentStyles}
