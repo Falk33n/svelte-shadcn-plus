@@ -1,13 +1,11 @@
 import type { badgeVariants } from '$components/ui/badge';
+import type { WithElementRef } from '$types';
 import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
 import type { VariantProps } from 'tailwind-variants';
 
-type AnchorElement = Omit<HTMLAnchorAttributes, 'class'> & {
-	ref?: HTMLAnchorElement | null;
-};
+type AnchorElement = WithElementRef<HTMLAnchorAttributes>;
 
-type SpanElement = Omit<HTMLAttributes<HTMLSpanElement>, 'class'> & {
-	ref?: HTMLSpanElement | null;
+type SpanElement = WithElementRef<HTMLAttributes<HTMLSpanElement>> & {
 	href?: never;
 	rel?: never;
 	target?: never;
@@ -15,5 +13,4 @@ type SpanElement = Omit<HTMLAttributes<HTMLSpanElement>, 'class'> & {
 
 export type BadgeProps = (AnchorElement | SpanElement) & {
 	variant?: VariantProps<typeof badgeVariants>['variant'];
-	class?: string;
 };

@@ -6,7 +6,7 @@
 		children,
 		ref = $bindable(null),
 		'class': className,
-		'aria-hidden': ariaHidden = true,
+		'aria-hidden': ariaHidden,
 		...restProps
 	}: SkeletonProps = $props();
 </script>
@@ -14,7 +14,7 @@
 <div
 	bind:this={ref}
 	class={cn('bg-muted animate-pulse rounded-md', className)}
-	aria-hidden={ariaHidden}
+	aria-hidden={ariaHidden || true}
 	{...restProps}
 >
 	{@render children?.()}

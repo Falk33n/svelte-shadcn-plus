@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AspectRatioProps } from '$components/ui/aspect-ratio';
+	import type { RootProps } from '$components/ui/aspect-ratio';
 	import { cn } from '$utils';
 
 	let {
@@ -8,13 +8,15 @@
 		class: className,
 		ratio = 1,
 		...restProps
-	}: AspectRatioProps = $props();
+	}: RootProps = $props();
 </script>
 
 <div
 	bind:this={ref}
-	class={cn('relative', className)}
-	style={`padding-bottom: ${ratio ? 100 / ratio : 0}%;`}
+	class={className ? cn(className) : undefined}
+	style={ratio
+		? `position: relative; padding-bottom: ${100 / ratio}%;`
+		: undefined}
 	{...restProps}
 >
 	{@render children?.()}
