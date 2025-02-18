@@ -14,7 +14,7 @@
 <div
 	bind:this={ref}
 	class={cn('relative', className)}
-	style={`padding-bottom:${ratio ? 100 / ratio : 0}%;`}
+	style={`padding-bottom: ${ratio ? 100 / ratio : 0}%;`}
 	{...restProps}
 >
 	{@render children?.()}
