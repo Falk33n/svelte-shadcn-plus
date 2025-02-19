@@ -1,2 +1,2 @@
-export { default as AspectRatio, default as Root } from './AspectRatio.svelte';
-export type { AspectRatioProps, AspectRatioProps as RootProps } from './types';
+export { default as AspectRatio } from './AspectRatio.svelte';
+export type { AspectRatioProps } from './types';

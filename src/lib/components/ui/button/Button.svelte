@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { buttonVariants, type RootProps } from '$components/ui/button';
+	import { buttonVariants, type ButtonProps } from '$components/ui/button';
 	import { cn } from '$utils';
 
 	let {
@@ -14,7 +14,7 @@
 		type,
 		disabled,
 		...restProps
-	}: RootProps = $props();
+	}: ButtonProps = $props();
 </script>
 
 <svelte:element

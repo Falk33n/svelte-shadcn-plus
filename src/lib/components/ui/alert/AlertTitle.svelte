@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TitleProps } from '$components/ui/alert';
+	import type { AlertTitleProps } from '$components/ui/alert';
 	import { cn } from '$utils';
 
 	let {
@@ -8,7 +8,7 @@
 		headingLevel,
 		children,
 		...restProps
-	}: TitleProps = $props();
+	}: AlertTitleProps = $props();
 </script>
 
 <svelte:element

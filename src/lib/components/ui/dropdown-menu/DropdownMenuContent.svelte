@@ -1,6 +1,6 @@
 <script lang="ts">
 	import {
-		type ContentProps,
+		type DropdownMenuContentProps,
 		type DropdownMenuContextProps,
 		getNewDropdownMenuContentStyle,
 	} from '$components/ui/dropdown-menu';
@@ -16,7 +16,7 @@
 		preventScroll,
 		children,
 		...restProps
-	}: ContentProps = $props();
+	}: DropdownMenuContentProps = $props();
 
 	const { open, dir, uniqueId } =
 		getOrSetContext<DropdownMenuContextProps>('dropdown-menu');

@@ -1,2 +1,2 @@
-export { default as Root, default as Skeleton } from './Skeleton.svelte';
-export type { SkeletonProps as RootProps, SkeletonProps } from './types';
+export { default as Skeleton } from './Skeleton.svelte';
+export type { SkeletonProps } from './types';

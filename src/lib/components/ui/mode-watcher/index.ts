@@ -1,8 +1,4 @@
-export { default as ModeWatcher, default as Root } from './ModeWatcher.svelte';
+export { default as ModeWatcher } from './ModeWatcher.svelte';
 export { getMode, setMode } from './state.svelte';
-export type {
-	Mode,
-	ModeWatcherProps,
-	ModeWatcherProps as RootProps,
-} from './types';
+export type { Mode, ModeWatcherProps } from './types';
 export { updateMode } from './utils';
