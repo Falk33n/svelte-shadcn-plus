@@ -16,9 +16,11 @@
 		<Button onclick={() => console.log(getMode())}>See current mode</Button>
 	</div>
 	<div class="flex items-center gap-2">
-		<Alert variant="danger">
+		<Alert>
 			<AlertTitle>Hello</AlertTitle>
 			<AlertDescription>You did something bad</AlertDescription>
 		</Alert>
+
+		<div class="text-muted-foreground p-6">Hello man what you do</div>
 	</div>
 </div>

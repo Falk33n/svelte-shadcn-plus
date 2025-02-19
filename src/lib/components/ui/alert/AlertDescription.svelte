@@ -10,10 +10,10 @@
 	}: ContentProps = $props();
 </script>
 
-<div
+<p
 	bind:this={ref}
-	class={cn('[&_p]:leading-relaxed', className)}
+	class={cn('leading-relaxed', className)}
 	{...restProps}
 >
 	{@render children?.()}
-</div>
+</p>

@@ -4,23 +4,18 @@
 
 	let {
 		ref = $bindable(null),
-		'class': className,
-		'aria-level': ariaLevel,
-		role,
+		class: className,
+		headingLevel,
 		children,
 		...restProps
 	}: TitleProps = $props();
 </script>
 
-<div
+<svelte:element
+	this={headingLevel !== undefined ? headingLevel : 'h5'}
 	bind:this={ref}
-	class={cn(
-		'mt-1 mb-1 text-lg leading-none font-medium tracking-tight',
-		className,
-	)}
-	aria-level={ariaLevel !== undefined ? ariaLevel : 5}
-	role={role !== undefined ? role : 'heading'}
+	class={cn('my-1 text-lg leading-none font-medium tracking-tight', className)}
 	{...restProps}
 >
 	{@render children?.()}
-</div>
+</svelte:element>

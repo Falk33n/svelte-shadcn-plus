@@ -10,5 +10,10 @@ export type AlertProps = WithElementRef<
 	variant?: VariantProps<typeof alertVariants>['variant'];
 };
 
-export type AlertTitleProps = WithElementRef<HTMLAttributes<HTMLDivElement>>;
-export type AlertContentProps = WithElementRef<HTMLAttributes<HTMLDivElement>>;
+export type AlertTitleProps = WithElementRef<
+	HTMLAttributes<HTMLHeadingElement>
+> & { headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' };
+
+export type AlertContentProps = WithElementRef<
+	HTMLAttributes<HTMLParagraphElement>
+>;

@@ -12,13 +12,8 @@ export const buttonVariants = tv({
 				'border-input bg-background border shadow-sm hover:bg-accent hover:text-accent-foreground active:scale-[99%]',
 			ghost:
 				'bg-background text-foreground hover:bg-accent hover:text-accent-foreground active:scale-[99%]',
-			info: 'bg-info text-info-foreground shadow hover:bg-info/85 active:scale-[99%]',
-			success:
-				'bg-success text-success-foreground shadow-sm hover:bg-success/85 active:scale-[99%]',
-			warning:
-				'bg-warning text-warning-foreground shadow-sm hover:bg-warning/85 active:scale-[99%]',
-			danger:
-				'bg-danger text-danger-foreground shadow-sm hover:bg-danger/85 active:scale-[99%]',
+			destructive:
+				'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/85 active:scale-[99%]',
 			link: 'bg-background text-primary hover:underline-offset-2 hover:underline',
 		},
 		size: {
