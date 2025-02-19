@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { Button } from '$components/ui/button';
 	import { getMode, setMode } from '$components/ui/mode-watcher';
-	import { Badge } from '../lib/components/ui/badge';
+	import Alert from '../lib/components/ui/alert/Alert.svelte';
+	import AlertDescription from '../lib/components/ui/alert/AlertDescription.svelte';
+	import AlertTitle from '../lib/components/ui/alert/AlertTitle.svelte';
 </script>
 
 <div
@@ -14,12 +16,11 @@
 		<Button onclick={() => console.log(getMode())}>See current mode</Button>
 	</div>
 	<div class="flex items-center gap-2">
-		<Badge variant="warning">Hello</Badge>
-		<Badge variant="success">Hello</Badge>
-		<Badge variant="info">Hello</Badge>
-		<Badge variant="danger">Hello</Badge>
-		<Badge variant="outline">Hello</Badge>
-		<Badge variant="secondary">Hello</Badge>
-		<Badge>Hello</Badge>
+		<Alert>
+			<AlertTitle>Hello</AlertTitle>
+			<AlertDescription>You did something bad</AlertDescription>
+		</Alert>
+
+		<div class="text-muted-foreground p-6">Hello man what you do</div>
 	</div>
 </div>
