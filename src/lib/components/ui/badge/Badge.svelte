@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type RootProps, badgeVariants } from '$components/ui/badge';
+	import { type BadgeProps, badgeVariants } from '$components/ui/badge';
 	import { cn } from '$utils';
 
 	let {
@@ -12,7 +12,7 @@
 		target,
 		rel,
 		...restProps
-	}: RootProps = $props();
+	}: BadgeProps = $props();
 </script>
 
 <svelte:element

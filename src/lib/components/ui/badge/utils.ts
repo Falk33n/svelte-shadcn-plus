@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const badgeVariants = tv({
-	base: 'focus:ring-ring inline-flex select-none items-center rounded-full duration-200 px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+	base: 'focus-visible:ring-ring inline-flex select-none items-center rounded-full focus-visible:ring-offset-background duration-200 px-2.5 py-0.5 font-semibold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1',
 	variants: {
 		variant: {
 			default: 'bg-primary text-primary-foreground hover:bg-primary/85',

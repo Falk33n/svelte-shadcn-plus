@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RootProps } from '$components/ui/aspect-ratio';
+	import type { AspectRatioProps } from '$components/ui/aspect-ratio';
 	import { cn } from '$utils';
 
 	let {
@@ -8,7 +8,7 @@
 		class: className,
 		ratio = 1,
 		...restProps
-	}: RootProps = $props();
+	}: AspectRatioProps = $props();
 </script>
 
 <div

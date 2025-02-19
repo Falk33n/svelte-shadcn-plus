@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type {
 		DropdownMenuContextProps,
-		RootProps,
+		DropdownMenuProps,
 	} from '$components/ui/dropdown-menu';
 	import { getOrSetContext, getUniqueId } from '$utils';
 
@@ -10,7 +10,7 @@
 		dir,
 		children,
 		onOpenChange,
-	}: RootProps = $props();
+	}: DropdownMenuProps = $props();
 
 	let open = $state({ value: initialOpen });
 

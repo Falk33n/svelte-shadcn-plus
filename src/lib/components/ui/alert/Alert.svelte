@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { alertVariants, type RootProps } from '$components/ui/alert';
+	import { alertVariants, type AlertProps } from '$components/ui/alert';
 	import { CircleAlertIcon, InfoIcon } from '$components/ui/icons';
 	import { cn } from '$utils';
 
@@ -11,7 +11,7 @@
 		variant,
 		children,
 		...restProps
-	}: RootProps = $props();
+	}: AlertProps = $props();
 </script>
 
 <div

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ContentProps } from '$components/ui/alert';
+	import type { AlertContentProps } from '$components/ui/alert';
 	import { cn } from '$utils';
 
 	let {
@@ -7,7 +7,7 @@
 		class: className,
 		children,
 		...restProps
-	}: ContentProps = $props();
+	}: AlertContentProps = $props();
 </script>
 
 <p
