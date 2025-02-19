@@ -22,7 +22,7 @@
 >
 	{#if Icon}
 		<Icon class="size-5" />
-	{:else if variant === 'default'}
+	{:else if variant !== undefined && variant === 'info'}
 		<InfoIcon class="size-5" />
 	{:else}
 		<CircleAlertIcon class="size-5" />
