@@ -13,4 +13,5 @@ type SpanElement = WithElementRef<HTMLAttributes<HTMLSpanElement>> & {
 
 export type BadgeProps = (AnchorElement | SpanElement) & {
 	variant?: VariantProps<typeof badgeVariants>['variant'];
+	size?: VariantProps<typeof badgeVariants>['size'];
 };

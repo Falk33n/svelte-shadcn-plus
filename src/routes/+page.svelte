@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="flex flex-col justify-center items-center gap-8 w-full min-h-screen"
+	class="flex min-h-screen w-full flex-col items-center justify-center gap-8"
 >
 	<div class="flex items-center gap-2">
 		<Button onclick={() => setMode('light')}>Change light</Button>
@@ -15,5 +15,11 @@
 	</div>
 	<div class="flex items-center gap-2">
 		<Badge variant="warning">Hello</Badge>
+		<Badge variant="success">Hello</Badge>
+		<Badge variant="info">Hello</Badge>
+		<Badge variant="danger">Hello</Badge>
+		<Badge variant="outline">Hello</Badge>
+		<Badge variant="secondary">Hello</Badge>
+		<Badge>Hello</Badge>
 	</div>
 </div>
