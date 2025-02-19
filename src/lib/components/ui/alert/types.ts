@@ -1,5 +1,5 @@
 import type { alertVariants } from '$components/ui/alert';
-import type { WithIcon } from '$components/ui/icon';
+import type { WithIcon } from '$components/ui/icons';
 import type { WithElementRef } from '$types';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { VariantProps } from 'tailwind-variants';
