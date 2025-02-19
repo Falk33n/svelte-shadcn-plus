@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { CircleAlertIcon, InfoIcon } from '$components/icons';
 	import { alertVariants, type AlertProps } from '$components/ui/alert';
-	import { CircleAlertIcon, InfoIcon } from '$components/ui/icons';
 	import { cn } from '$utils';
 
 	let {
