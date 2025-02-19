@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const badgeVariants = tv({
-	base: 'focus:ring-ring inline-flex select-none items-center rounded-full duration-200 border px-2.5 py-0.5 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+	base: 'focus:ring-ring inline-flex select-none items-center rounded-full duration-200 border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
 	variants: {
 		variant: {
 			default:
@@ -17,8 +17,14 @@ export const badgeVariants = tv({
 				'bg-danger text-danger-foreground hover:bg-danger/85 border-transparent',
 			outline: 'text-foreground',
 		},
+		size: {
+			base: 'text-base',
+			sm: 'text-sm',
+			xs: 'text-xs',
+		},
 	},
 	defaultVariants: {
 		variant: 'default',
+		size: 'sm',
 	},
 });
