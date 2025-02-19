@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IconProps } from '$components/ui/icons';
+	import type { IconProps } from '$components/icons';
 	import { cn } from '$utils';
 
 	let {
@@ -30,6 +30,16 @@
 		cy="12"
 		r="10"
 	/>
-	<path d="M12 16v-4" />
-	<path d="M12 8h.01" />
+	<line
+		x1="12"
+		x2="12"
+		y1="8"
+		y2="12"
+	/>
+	<line
+		x1="12"
+		x2="12.01"
+		y1="16"
+		y2="16"
+	/>
 </svg>

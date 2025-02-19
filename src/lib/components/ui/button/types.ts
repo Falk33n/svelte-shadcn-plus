@@ -20,4 +20,5 @@ type ButtonElement = WithElementRef<HTMLButtonAttributes> & {
 export type ButtonProps = (AnchorElement | ButtonElement) & {
 	variant?: VariantProps<typeof buttonVariants>['variant'];
 	size?: VariantProps<typeof buttonVariants>['size'];
+	isLoading?: boolean;
 };

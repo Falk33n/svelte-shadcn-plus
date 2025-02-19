@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { LoaderCircleIcon } from '$components/icons';
 	import type {
 		AvatarContextProps,
 		AvatarImageProps,
 	} from '$components/ui/avatar';
-	import { LoaderCircleIcon } from '$components/ui/icons';
 	import { Image } from '$components/ui/image';
 	import { cn, getOrSetContext } from '$utils';
 
