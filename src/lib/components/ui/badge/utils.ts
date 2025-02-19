@@ -8,6 +8,7 @@ export const badgeVariants = tv({
 				'bg-primary text-primary-foreground hover:bg-primary/85 border-transparent',
 			secondary:
 				'bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent',
+			info: 'bg-info text-info-foreground hover:bg-info/85 border-transparent',
 			success:
 				'bg-success text-success-foreground hover:bg-success/85 border-transparent',
 			warning:

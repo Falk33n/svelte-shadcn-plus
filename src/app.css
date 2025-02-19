@@ -3,8 +3,6 @@
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:where(.dark, .dark *));
-@custom-variant contrast-light (&:where(.contrast-light, .contrast-light *));
-@custom-variant contrast-dark (&:where(.contrast-dark, .contrast-dark *));
 
 @theme {
 	--radius-3xl: calc(var(--radius-lg) + 6px);
@@ -22,6 +20,9 @@
 	--color-background: hsl(0, 0%, 98%);
 	--color-foreground: hsl(0, 0%, 0%);
 
+	--color-primary: hsl(0, 0%, 32%);
+	--color-primary-foreground: hsl(0, 0%, 100%);
+
 	--color-secondary: hsl(0, 0%, 90%);
 	--color-secondary-foreground: hsl(0, 0%, 0%);
 
@@ -34,8 +35,8 @@
 	--color-border: hsl(0, 0%, 32%);
 	--color-ring: hsl(0, 0%, 0%);
 
-	--color-primary: hsl(226, 71%, 40%);
-	--color-primary-foreground: hsl(0, 0%, 100%);
+	--color-info: hsl(226, 71%, 40%);
+	--color-info-foreground: hsl(0, 0%, 100%);
 
 	--color-success: hsl(142, 71%, 45%);
 	--color-success-foreground: hsl(0, 0%, 0%);
@@ -86,7 +87,7 @@
 	}
 
 	body {
-		@apply bg-background w-full min-h-screen overflow-x-hidden font-geist-sans text-foreground;
+		@apply bg-background font-geist-sans text-foreground min-h-screen w-full overflow-x-hidden;
 	}
 
 	p,
@@ -95,6 +96,6 @@
 	}
 
 	.container {
-		@apply mx-auto px-8 max-w-[1400px];
+		@apply mx-auto max-w-[1400px] px-8;
 	}
 }
