@@ -4,6 +4,9 @@
 	import Alert from '../lib/components/ui/alert/Alert.svelte';
 	import AlertDescription from '../lib/components/ui/alert/AlertDescription.svelte';
 	import AlertTitle from '../lib/components/ui/alert/AlertTitle.svelte';
+	import { AvatarFallback } from '../lib/components/ui/avatar';
+	import Avatar from '../lib/components/ui/avatar/Avatar.svelte';
+	import AvatarImage from '../lib/components/ui/avatar/AvatarImage.svelte';
 </script>
 
 <div
@@ -23,4 +26,11 @@
 
 		<div class="text-muted-foreground p-6">Hello man what you do</div>
 	</div>
+	<Avatar>
+		<AvatarImage
+			src="https://placehold.co/400"
+			alt="CNF"
+		/>
+		<AvatarFallback>CN</AvatarFallback>
+	</Avatar>
 </div>
