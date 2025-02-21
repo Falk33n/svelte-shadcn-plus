@@ -34,14 +34,12 @@
 	let {
 		ref = $bindable(null),
 		class: className,
-		icon: IconProp,
-		role = 'alert',
 		variant = 'default',
+		role = 'alert',
+		icon: Icon = variant === 'info' ? InfoIcon : CircleAlertIcon,
 		children,
 		...restProps
 	}: AlertProps = $props();
-
-	const Icon = IconProp || variant === 'info' ? InfoIcon : CircleAlertIcon;
 </script>
 
 <div

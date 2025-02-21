@@ -4,9 +4,13 @@
 	import Alert from '../lib/components/ui/alert/Alert.svelte';
 	import AlertDescription from '../lib/components/ui/alert/AlertDescription.svelte';
 	import AlertTitle from '../lib/components/ui/alert/AlertTitle.svelte';
-	import Avatar from '../lib/components/ui/avatar/Avatar.svelte';
-	import AvatarFallback from '../lib/components/ui/avatar/AvatarFallback.svelte';
-	import AvatarImage from '../lib/components/ui/avatar/AvatarImage.svelte';
+	import Breadcrumb from '../lib/components/ui/breadcrumb/Breadcrumb.svelte';
+	import BreadcrumbEllipsis from '../lib/components/ui/breadcrumb/BreadcrumbEllipsis.svelte';
+	import BreadcrumbItem from '../lib/components/ui/breadcrumb/BreadcrumbItem.svelte';
+	import BreadcrumbLink from '../lib/components/ui/breadcrumb/BreadcrumbLink.svelte';
+	import BreadcrumbList from '../lib/components/ui/breadcrumb/BreadcrumbList.svelte';
+	import BreadcrumbPage from '../lib/components/ui/breadcrumb/BreadcrumbPage.svelte';
+	import BreadcrumbSeparator from '../lib/components/ui/breadcrumb/BreadcrumbSeparator.svelte';
 </script>
 
 <div
@@ -28,12 +32,24 @@
 	</div>
 
 	<div class="flex items-center gap-2">
-		<Avatar>
-			<AvatarImage
-				src="https://placehold.co/400"
-				alt="he"
-			/>
-			<AvatarFallback>CN</AvatarFallback>
-		</Avatar>
+		<Breadcrumb>
+			<BreadcrumbList>
+				<BreadcrumbItem>
+					<BreadcrumbLink href="/sdsd">Home</BreadcrumbLink>
+				</BreadcrumbItem>
+				<BreadcrumbSeparator />
+				<BreadcrumbItem>
+					<BreadcrumbEllipsis />
+				</BreadcrumbItem>
+				<BreadcrumbSeparator />
+				<BreadcrumbItem>
+					<BreadcrumbLink href="/components">Components</BreadcrumbLink>
+				</BreadcrumbItem>
+				<BreadcrumbSeparator />
+				<BreadcrumbItem>
+					<BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+				</BreadcrumbItem>
+			</BreadcrumbList>
+		</Breadcrumb>
 	</div>
 </div>

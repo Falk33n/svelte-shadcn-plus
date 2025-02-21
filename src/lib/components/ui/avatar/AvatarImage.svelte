@@ -35,7 +35,6 @@
 	let {
 		ref = $bindable(null),
 		'class': className,
-		loading = 'lazy',
 		'aria-busy': ariaBusy = imageStatus.value === 'loading',
 		onerror,
 		onload,
@@ -50,7 +49,6 @@
 		aria-busy={ariaBusy}
 		onload={(e) => handleImageEvents(e, imageStatus, 'loaded', onload)}
 		onerror={(e) => handleImageEvents(e, imageStatus, 'error', onerror)}
-		{loading}
 		{...restProps}
 	/>
 {/if}
