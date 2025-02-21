@@ -6,7 +6,7 @@
 	import { cn } from '$utils';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	export type AlertTitleProps = WithClassAsString<
+	export type CardTitleProps = WithClassAsString<
 		WithElementRef<HTMLAttributes<HTMLHeadingElement>>
 	> & { headingLevel?: HeadingLevel };
 </script>
@@ -15,16 +15,16 @@
 	let {
 		ref = $bindable(null),
 		class: className,
-		headingLevel = 'h5',
+		headingLevel = 'h3',
 		children,
 		...restProps
-	}: AlertTitleProps = $props();
+	}: CardTitleProps = $props();
 </script>
 
 <svelte:element
 	this={headingLevel}
 	bind:this={ref}
-	class={cn('my-1 text-lg leading-none font-medium tracking-tight', className)}
+	class={cn('text-lg leading-none font-semibold tracking-tight', className)}
 	{...restProps}
 >
 	{@render children?.()}
