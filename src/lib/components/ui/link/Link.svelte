@@ -2,6 +2,7 @@
 	lang="ts"
 	module
 >
+	import { page } from '$app/state';
 	import type { WithClassAsString, WithElementRef } from '$types';
 	import { cn } from '$utils';
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
@@ -12,8 +13,6 @@
 </script>
 
 <script lang="ts">
-	import { page } from '$app/state';
-
 	let {
 		ref = $bindable(null),
 		'class': className,

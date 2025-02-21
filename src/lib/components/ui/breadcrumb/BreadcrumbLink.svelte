@@ -2,15 +2,13 @@
 	lang="ts"
 	module
 >
-	import type { LinkProps } from '$components/ui/link';
+	import { type LinkProps, Link } from '$components/ui/link';
 	import { cn } from '$utils';
 
 	export type BreadcrumbLinkProps = LinkProps;
 </script>
 
 <script lang="ts">
-	import { Link } from '$components/ui/link';
-
 	let {
 		ref = $bindable(null),
 		class: className,

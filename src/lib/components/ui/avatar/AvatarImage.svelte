@@ -3,7 +3,9 @@
 	module
 >
 	import { getAvatarContext } from '$components/ui/avatar';
+	import { LoaderCircleIcon } from '$components/ui/icons';
 	import type { ImageProps } from '$components/ui/image';
+	import { Image } from '$components/ui/image';
 	import { cn } from '$utils';
 	import type { EventHandler } from 'svelte/elements';
 
@@ -27,9 +29,6 @@
 </script>
 
 <script lang="ts">
-	import { LoaderCircleIcon } from '$components/ui/icons';
-	import { Image } from '$components/ui/image';
-
 	const { imageStatus } = getAvatarContext();
 
 	let {

@@ -3,6 +3,7 @@
 	module
 >
 	import type { WithIcon } from '$components/ui/icons';
+	import { CircleAlertIcon, InfoIcon } from '$components/ui/icons';
 	import type { WithClassAsString, WithElementRef } from '$types';
 	import { cn } from '$utils';
 	import type { HTMLAttributes } from 'svelte/elements';
@@ -29,8 +30,6 @@
 </script>
 
 <script lang="ts">
-	import { CircleAlertIcon, InfoIcon } from '$components/ui/icons';
-
 	let {
 		ref = $bindable(null),
 		class: className,

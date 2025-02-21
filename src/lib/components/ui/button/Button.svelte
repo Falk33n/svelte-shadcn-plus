@@ -2,6 +2,7 @@
 	lang="ts"
 	module
 >
+	import { LoaderCircleIcon } from '$components/ui/icons';
 	import type { WithClassAsString, WithElementRef } from '$types';
 	import { cn } from '$utils';
 	import type {
@@ -61,8 +62,6 @@
 </script>
 
 <script lang="ts">
-	import { LoaderCircleIcon } from '$components/ui/icons';
-
 	let {
 		ref = $bindable(null),
 		isLoading = $bindable(false),
