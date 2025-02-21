@@ -1,45 +1,61 @@
+<script
+	lang="ts"
+	module
+>
+	import { getAvatarContext } from '$components/ui/avatar';
+	import type { ImageProps } from '$components/ui/image';
+	import { cn } from '$utils';
+	import type { EventHandler } from 'svelte/elements';
+
+	export type ImageStatus = { value: 'loading' | 'loaded' | 'error' };
+	export type AvatarImageProps = Omit<ImageProps, 'disableLoader'>;
+
+	type ImageEventHandler = EventHandler<Event, Element> | null | undefined;
+	type ImageEventTarget = Event & {
+		currentTarget: EventTarget & Element;
+	};
+
+	const handleImageEvents = (
+		e: ImageEventTarget,
+		imageStatus: ImageStatus,
+		result: 'loaded' | 'error',
+		onEvent: ImageEventHandler,
+	) => {
+		imageStatus.value = result;
+		onEvent?.(e);
+	};
+</script>
+
 <script lang="ts">
-	import { LoaderCircleIcon } from '$components/icons';
-	import type {
-		AvatarContextProps,
-		AvatarImageProps,
-	} from '$components/ui/avatar';
+	import { LoaderCircleIcon } from '$components/ui/icons';
 	import { Image } from '$components/ui/image';
-	import { cn, getOrSetContext } from '$utils';
+
+	const { imageStatus } = getAvatarContext();
 
 	let {
 		ref = $bindable(null),
-		class: className,
-		loading,
+		'class': className,
+		loading = 'lazy',
+		'aria-busy': ariaBusy = imageStatus.value === 'loading',
 		onerror,
 		onload,
 		...restProps
 	}: AvatarImageProps = $props();
-
-	const { imageStatus } = getOrSetContext<AvatarContextProps>('avatar');
 </script>
 
 {#if imageStatus.value !== 'error'}
 	<Image
 		bind:ref
-		disableLoader
 		class={cn('aspect-square', className)}
-		loading={loading || 'lazy'}
-		onload={(event) => {
-			imageStatus.value = 'loaded';
-			onload?.(event);
-		}}
-		onerror={(event) => {
-			imageStatus.value = 'error';
-			onerror?.(event);
-		}}
+		aria-busy={ariaBusy}
+		onload={(e) => handleImageEvents(e, imageStatus, 'loaded', onload)}
+		onerror={(e) => handleImageEvents(e, imageStatus, 'error', onerror)}
+		{loading}
 		{...restProps}
 	/>
 {/if}
 {#if imageStatus.value === 'loading'}
 	<LoaderCircleIcon
-		aria-busy
-		aria-hidden={false}
 		class="flex size-full scale-50 animate-spin items-center justify-center"
 	/>
 {/if}

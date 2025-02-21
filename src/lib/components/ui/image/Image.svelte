@@ -1,41 +1,35 @@
-<script lang="ts">
-	import type { ImageProps, ImageStatus } from '$components/ui/image';
-	import { Skeleton } from '$components/ui/skeleton';
+<script
+	lang="ts"
+	module
+>
+	import type {
+		WithClassAsString,
+		WithElementRef,
+		WithoutChildren,
+	} from '$types';
 	import { cn } from '$utils';
+	import type { HTMLImgAttributes } from 'svelte/elements';
 
+	export type ImageProps = WithClassAsString<
+		WithElementRef<WithoutChildren<Omit<HTMLImgAttributes, 'src' | 'alt'>>>
+	> & {
+		src: string;
+		alt: string;
+	};
+</script>
+
+<script lang="ts">
 	let {
 		ref = $bindable(null),
 		class: className,
-		disableLoader,
-		loading,
-		onerror,
-		onload,
+		loading = 'lazy',
 		...restProps
 	}: ImageProps = $props();
-
-	let imageStatus = $state<ImageStatus>('loading');
 </script>
 
-{#if imageStatus !== 'error'}
-	<img
-		bind:this={ref}
-		class={cn(imageStatus === 'loading' ? 'sr-only' : 'size-full', className)}
-		loading={loading || 'lazy'}
-		onload={(event) => {
-			imageStatus = 'loaded';
-			onload?.(event);
-		}}
-		onerror={(event) => {
-			imageStatus = 'error';
-			onerror?.(event);
-		}}
-		{...restProps}
-	/>
-{/if}
-{#if !disableLoader && imageStatus === 'loading'}
-	<Skeleton
-		aria-busy
-		aria-hidden={false}
-		class="size-full"
-	/>
-{/if}
+<img
+	bind:this={ref}
+	class={className ? cn(className) : undefined}
+	{loading}
+	{...restProps}
+/>

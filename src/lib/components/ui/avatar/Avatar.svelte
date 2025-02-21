@@ -1,6 +1,38 @@
+<script
+	lang="ts"
+	module
+>
+	import type { ImageStatus } from '$components/ui/avatar';
+	import type { WithClassAsString, WithElementRef } from '$types';
+	import { cn } from '$utils';
+	import { getContext, hasContext, setContext } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
+
+	export type AvatarProps = WithClassAsString<
+		WithElementRef<HTMLAttributes<HTMLElement>>
+	>;
+
+	type AvatarContextProps = {
+		imageStatus: ImageStatus;
+	};
+
+	export const getAvatarContext = () => {
+		if (!hasContext('avatar')) {
+			throw new ReferenceError(
+				'Avatar Context was not found. Ensure the component is inside the correct provider.',
+			);
+		}
+
+		return getContext<AvatarContextProps>('avatar');
+	};
+</script>
+
 <script lang="ts">
-	import type { AvatarContextProps, AvatarProps } from '$components/ui/avatar';
-	import { cn, getOrSetContext } from '$utils';
+	let imageStatus = $state<ImageStatus>({
+		value: 'loading',
+	});
+
+	setContext('avatar', { imageStatus });
 
 	let {
 		ref = $bindable(null),
@@ -8,12 +40,6 @@
 		children,
 		...restProps
 	}: AvatarProps = $props();
-
-	let imageStatus = $state<AvatarContextProps['imageStatus']>({
-		value: 'loading',
-	});
-
-	getOrSetContext<AvatarContextProps>('avatar', { imageStatus });
 </script>
 
 <figure

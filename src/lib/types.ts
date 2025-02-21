@@ -1,5 +1,7 @@
 import type { Snippet } from 'svelte';
 
+export type WithClassAsString<T> = Omit<T, 'class'> & { class?: string };
+
 export type WithoutElementRef<T> = Omit<T, 'ref'>;
 export type WithElementRef<T, K = undefined> = T & {
 	ref?: K extends undefined ? HTMLElement | null : K | null;
@@ -13,8 +15,8 @@ export type WithChild<T, K = undefined> = T & {
 	child?: K extends undefined ? Snippet : Snippet<[{ props: K }]>;
 };
 
-export type WithoutChildrenOrChild<T> = Omit<T, 'children' | 'child'>;
-export type WithChildrenOrChild<T, K = undefined> = T & {
+export type WithoutChildrenAndChild<T> = Omit<T, 'children' | 'child'>;
+export type WithChildrenAndChild<T, K = undefined> = T & {
 	children?: Snippet;
 	child?: K extends undefined ? Snippet : Snippet<[{ props: K }]>;
 };
