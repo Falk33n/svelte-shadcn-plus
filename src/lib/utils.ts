@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge';
  * - Function to merge `classNames` in the correct order.
  * - Also removes faulty and duplicate `classNames`.
  * - Be aware that all `classNames` that is not a valid
- *   `Tailwind CSS className` will be removed.
+ *   `Tailwind CSS classNames` will be removed.
  */
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
