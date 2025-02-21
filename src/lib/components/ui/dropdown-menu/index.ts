@@ -1,10 +1,14 @@
-export { default as DropdownMenu } from './DropdownMenu.svelte';
-export { default as DropdownMenuContent } from './DropdownMenuContent.svelte';
-export { default as DropdownMenuTrigger } from './DropdownMenuTrigger.svelte';
-export type {
-	DropdownMenuContentProps,
-	DropdownMenuContextProps,
-	DropdownMenuProps,
-	DropdownMenuTriggerProps,
-} from './types';
-export { getNewDropdownMenuContentStyle } from './utils';
+export {
+	default as DropdownMenu,
+	getDropdownMenuContext,
+	type DropdownMenuContextProps,
+	type DropdownMenuProps,
+} from './DropdownMenu.svelte';
+export {
+	default as DropdownMenuContent,
+	type DropdownMenuContentProps,
+} from './DropdownMenuContent.svelte';
+export {
+	default as DropdownMenuTrigger,
+	type DropdownMenuTriggerProps,
+} from './DropdownMenuTrigger.svelte';

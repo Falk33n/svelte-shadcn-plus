@@ -1,9 +1,19 @@
+<script
+	lang="ts"
+	module
+>
+	import { getAvatarContext } from '$components/ui/avatar';
+	import type { WithClassAsString, WithElementRef } from '$types';
+	import { cn } from '$utils';
+	import type { HTMLAttributes } from 'svelte/elements';
+
+	export type AvatarFallbackProps = WithClassAsString<
+		WithElementRef<HTMLAttributes<HTMLSpanElement>>
+	>;
+</script>
+
 <script lang="ts">
-	import type {
-		AvatarContextProps,
-		AvatarFallbackProps,
-	} from '$components/ui/avatar';
-	import { cn, getOrSetContext } from '$utils';
+	const { imageStatus } = getAvatarContext();
 
 	let {
 		ref = $bindable(null),
@@ -11,8 +21,6 @@
 		children,
 		...restProps
 	}: AvatarFallbackProps = $props();
-
-	const { imageStatus } = getOrSetContext<AvatarContextProps>('avatar');
 </script>
 
 {#if imageStatus.value === 'error'}

@@ -1,32 +1,55 @@
-<script lang="ts">
-	import { CircleAlertIcon, InfoIcon } from '$components/icons';
-	import { alertVariants, type AlertProps } from '$components/ui/alert';
+<script
+	lang="ts"
+	module
+>
+	import type { WithIcon } from '$components/ui/icons';
+	import type { WithClassAsString, WithElementRef } from '$types';
 	import { cn } from '$utils';
+	import type { HTMLAttributes } from 'svelte/elements';
+	import { tv, type VariantProps } from 'tailwind-variants';
+
+	export const alertVariants = tv({
+		base: 'relative w-full bg-background rounded-lg border p-4 [&:has(svg)]:pl-12 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4',
+		variants: {
+			variant: {
+				default: 'border-destructive text-destructive [&>svg]:text-destructive',
+				info: 'text-foreground [&>svg]:text-foreground',
+			},
+		},
+		defaultVariants: {
+			variant: 'default',
+		},
+	});
+
+	export type AlertProps = WithClassAsString<
+		WithElementRef<WithIcon<HTMLAttributes<HTMLDivElement>>>
+	> & {
+		variant?: VariantProps<typeof alertVariants>['variant'];
+	};
+</script>
+
+<script lang="ts">
+	import { CircleAlertIcon, InfoIcon } from '$components/ui/icons';
 
 	let {
 		ref = $bindable(null),
 		class: className,
-		icon: Icon,
-		role,
-		variant,
+		icon: IconProp,
+		role = 'alert',
+		variant = 'default',
 		children,
 		...restProps
 	}: AlertProps = $props();
+
+	const Icon = IconProp || variant === 'info' ? InfoIcon : CircleAlertIcon;
 </script>
 
 <div
 	bind:this={ref}
-	class={cn(alertVariants({ variant, className: className as string }))}
-	role={role !== undefined ? role : 'alert'}
+	class={cn(alertVariants({ variant, className }))}
+	{role}
 	{...restProps}
 >
-	{#if Icon}
-		<Icon class="size-5" />
-	{:else if variant !== undefined && variant === 'info'}
-		<InfoIcon class="size-5" />
-	{:else}
-		<CircleAlertIcon class="size-5" />
-	{/if}
-
+	<Icon class="size-5" />
 	{@render children?.()}
 </div>

@@ -1,3 +1,5 @@
-export { default as Button } from './Button.svelte';
-export type { ButtonProps } from './types';
-export { buttonVariants } from './utils';
+export {
+	default as Button,
+	buttonVariants,
+	type ButtonProps,
+} from './Button.svelte';
