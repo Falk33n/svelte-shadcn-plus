@@ -6,8 +6,8 @@
 	import { cn } from '$utils';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	export type BreadcrumbItemProps = WithClassAsString<
-		WithElementRef<HTMLAttributes<HTMLLIElement>>
+	export type BreadcrumbListProps = WithClassAsString<
+		WithElementRef<HTMLAttributes<HTMLOListElement>>
 	>;
 </script>
 
@@ -17,13 +17,16 @@
 		class: className,
 		children,
 		...restProps
-	}: BreadcrumbItemProps = $props();
+	}: BreadcrumbListProps = $props();
 </script>
 
-<li
+<ol
 	bind:this={ref}
-	class={cn('inline-flex items-center gap-1.5', className)}
+	class={cn(
+		'text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5',
+		className,
+	)}
 	{...restProps}
 >
 	{@render children?.()}
-</li>
+</ol>

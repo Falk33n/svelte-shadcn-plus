@@ -6,10 +6,11 @@ import type {
 import type { Component } from 'svelte';
 import type { SVGAttributes } from 'svelte/elements';
 
+export { default as ChevronRightIcon } from './ChevronRightIcon.svelte';
 export { default as CircleAlertIcon } from './CircleAlertIcon.svelte';
+export { default as EllipsisIcon } from './EllipsisIcon.svelte';
 export { default as InfoIcon } from './InfoIcon.svelte';
 export { default as LoaderCircleIcon } from './LoaderCircleIcon.svelte';
-
 export type IconProps = WithClassAsString<
 	WithoutChildren<WithElementRef<SVGAttributes<SVGElement>, SVGSVGElement>>
 >;
